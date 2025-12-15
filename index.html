@@ -1,1 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexo Space | Premium Coworking in Guatemala</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #0A2463;
+            --primary-light: #1E40AF;
+            --secondary: #FF6B35;
+            --secondary-light: #FF8C61;
+            --accent: #00B4D8;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --dark: #212529;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2.5rem;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-size: 1.75rem;
+        }
+        
+        .text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        header.scrolled {
+            padding: 12px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 35px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e3e9ff 100%);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .hero-image {
+            flex: 1;
+            position: relative;
+            max-width: 600px;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-hover);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: var(--transition);
+        }
+        
+        .hero-image img:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        /* Features Section */
+        .features {
+            background-color: var(--light);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        /* Spaces Section */
+        .spaces-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .space-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            background: white;
+        }
+        
+        .space-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .space-image {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .space-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .space-card:hover .space-image img {
+            transform: scale(1.05);
+        }
+        
+        .space-content {
+            padding: 25px;
+        }
+        
+        .space-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .space-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--gray);
+        }
+        
+        /* Amenities Section */
+        .amenities {
+            background-color: var(--light);
+        }
+        
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .amenity-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .amenity-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .amenity-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(10, 36, 99, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+        
+        /* Locations Section */
+        .locations-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 30px;
+            padding-bottom: 20px;
+            scroll-snap-type: x mandatory;
+        }
+        
+        .locations-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .locations-slider::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .locations-slider::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 10px;
+        }
+        
+        .location-card {
+            min-width: 300px;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            scroll-snap-align: start;
+        }
+        
+        .location-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .location-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .location-content {
+            padding: 25px;
+        }
+        
+        .location-address {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+        
+        .location-address i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        /* Community Section */
+        .community-stats {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            margin: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--light);
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .testimonial-text:before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--secondary-light);
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            opacity: 0.3;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .testimonial-role {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            color: white;
+        }
+        
+        .cta h2:after {
+            background-color: var(--secondary);
+        }
+        
+        .cta p {
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta .btn-secondary {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .cta .btn-secondary:hover {
+            background-color: var(--light);
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-links h3, .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .footer-contact p {
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--secondary);
+            width: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-content {
+                margin-bottom: 60px;
+                max-width: 100%;
+            }
+            
+            .hero-btns {
+                justify-content: center;
+            }
+            
+            .hero-image {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.3rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+            }
+            
+            .hero {
+                padding-top: 140px;
+                padding-bottom: 60px;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero-btns .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo"><i class="fas fa-cube"></i> Nexo Space</a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#spaces">Spaces</a></li>
+                    <li><a href="#amenities">Amenities</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#contact" class="btn-outline btn">Book a Tour</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Productive Workspaces for Guatemala's Innovators</h1>
+                <p>Nexo Space brings modern, flexible coworking solutions to Guatemala's growing business ecosystem. Join a community of entrepreneurs, remote workers, and creative professionals in our premium workspaces.</p>
+                <div class="hero-btns">
+                    <a href="#spaces" class="btn btn-primary">View Spaces</a>
+                    <a href="#contact" class="btn btn-secondary">Book a Tour</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Modern Coworking Space">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Nexo Space</h2>
+                <p>We combine the benefits of global coworking chains with the authentic local experience of Guatemala[citation:1]</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>High-Speed Connectivity</h3>
+                    <p>Enterprise-grade fiber internet with backup connections to ensure you're always online and productive.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Vibrant Community</h3>
+                    <p>Connect with like-minded professionals, entrepreneurs, and creatives in Guatemala's growing business ecosystem[citation:2].</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Networking Events</h3>
+                    <p>Regular workshops, networking sessions, and community events to help you grow personally and professionally[citation:1].</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spaces Section -->
+    <section class="spaces" id="spaces">
+        <div class="container">
+            <div class="section-header">
+                <h2>Flexible Workspace Solutions</h2>
+                <p>Choose from a variety of workspace options tailored to your needs</p>
+            </div>
+            
+            <div class="spaces-grid">
+                <div class="space-card">
+                    <div class="space-image">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Hot Desk Area">
+                    </div>
+                    <div class="space-content">
+                        <h3>Hot Desk</h3>
+                        <p>Flexible access to shared workspaces with high-speed internet and communal amenities.</p>
+                        <div class="space-price">From Q850<span>/month</span></div>
+                        <a href="#contact" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="space-card">
+                    <div class="space-image">
+                        <img src="https://images.unsplash.com/photo-1564069114553-7215e1ff1890?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2032&q=80" alt="Dedicated Desk">
+                    </div>
+                    <div class="space-content">
+                        <h3>Dedicated Desk</h3>
+                        <p>Your own personal workspace in a shared environment with storage and 24/7 access.</p>
+                        <div class="space-price">From Q1,600<span>/month[citation:4]</span></div>
+                        <a href="#contact" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="space-card">
+                    <div class="space-image">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Private Office">
+                    </div>
+                    <div class="space-content">
+                        <h3>Private Office</h3>
+                        <p>Fully furnished private offices for teams of 2-10 people with custom configuration options.</p>
+                        <div class="space-price">From Q3,500<span>/month</span></div>
+                        <a href="#contact" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section class="amenities" id="amenities">
+        <div class="container">
+            <div class="section-header">
+                <h2>Premium Amenities</h2>
+                <p>Everything you need to work productively and comfortably</p>
+            </div>
+            
+            <div class="amenities-grid">
+                <div class="amenity-item">
+                    <div class="amenity-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <div>
+                        <h4>Complimentary Coffee & Tea</h4>
+                        <p>Premium coffee, teas, and refreshments available all day</p>
+                    </div>
+                </div>
+                
+                <div class="amenity-item">
+                    <div class="amenity-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div>
+                        <h4>Meeting Rooms</h4>
+                        <p>Fully equipped meeting rooms with video conferencing</p>
+                    </div>
+                </div>
+                
+                <div class="amenity-item">
+                    <div class="amenity-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <div>
+                        <h4>Printing Facilities</h4>
+                        <p>High-quality printing, scanning, and copying services</p>
+                    </div>
+                </div>
+                
+                <div class="amenity-item">
+                    <div class="amenity-icon">
+                        <i class="fas fa-bicycle"></i>
+                    </div>
+                    <div>
+                        <h4>Bike Storage</h4>
+                        <p>Secure bike storage and shower facilities for commuters</p>
+                    </div>
+                </div>
+                
+                <div class="amenity-item">
+                    <div class="amenity-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <div>
+                        <h4>Reception Services</h4>
+                        <p>Professional reception to greet your clients and guests</p>
+                    </div>
+                </div>
+                
+                <div class="amenity-item">
+                    <div class="amenity-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <h4>24/7 Security</h4>
+                        <p>Secure access and surveillance for peace of mind</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="locations" id="locations">
+        <div class="container">
+            <div class="section-header">
+                <h2>Strategic Locations</h2>
+                <p>Premium workspaces in Guatemala's key business districts[citation:4]</p>
+            </div>
+            
+            <div class="locations-slider">
+                <div class="location-card">
+                    <div class="location-image">
+                        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Citibank Tower">
+                    </div>
+                    <div class="location-content">
+                        <h3>Citibank Tower, Zone 10</h3>
+                        <div class="location-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>3rd Avenue 13-78, Zone 10, Guatemala City[citation:8]</span>
+                        </div>
+                        <p>Prestigious address in Guatemala's central financial district with easy access to major transportation links[citation:4].</p>
+                        <a href="#contact" class="btn btn-outline">View This Location</a>
+                    </div>
+                </div>
+                
+                <div class="location-card">
+                    <div class="location-image">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Europlaza">
+                    </div>
+                    <div class="location-content">
+                        <h3>Europlaza, Zone 14</h3>
+                        <div class="location-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>5th Avenue 5-55, Zone 14, Guatemala City[citation:8]</span>
+                        </div>
+                        <p>Modern offices in one of the most exclusive areas of the city, close to embassies and clinics[citation:4].</p>
+                        <a href="#contact" class="btn btn-outline">View This Location</a>
+                    </div>
+                </div>
+                
+                <div class="location-card">
+                    <div class="location-image">
+                        <img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Cayala">
+                    </div>
+                    <div class="location-content">
+                        <h3>Paseo Cayalá, Zone 16</h3>
+                        <div class="location-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Boulevard Rafael Landivar 10-05, Zone 16, Guatemala City[citation:8]</span>
+                        </div>
+                        <p>Flexible office space in Paseo Cayalá, strategically located near Zone 10 financial district[citation:8].</p>
+                        <a href="#contact" class="btn btn-outline">View This Location</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community" id="community">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Growing Community</h2>
+                <p>Join over 500 professionals, startups, and established businesses who call Nexo Space home</p>
+            </div>
+            
+            <div class="community-stats">
+                <div class="stat">
+                    <div class="stat-number">500+</div>
+                    <p>Community Members</p>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-number">150+</div>
+                    <p>Businesses Hosted</p>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-number">40+</div>
+                    <p>Events per Year</p>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-number">95%</div>
+                    <p>Member Satisfaction</p>
+                </div>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Nexo Space has been instrumental in growing my digital marketing agency. The networking opportunities and professional environment have helped me secure three major clients within just two months of joining."
+                    </div>
+                    <div class="testimonial-author">María González</div>
+                    <div class="testimonial-role">Founder, Digital Solutions GT</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ready to Elevate Your Work?</h2>
+                <p>Book a tour of our spaces and experience the Nexo Space difference firsthand. See how our modern facilities and vibrant community can help grow your business.</p>
+            </div>
+            <a href="#contact-form" class="btn btn-secondary">Book a Tour Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo"><i class="fas fa-cube"></i> Nexo Space</a>
+                    <p>Bringing modern, flexible coworking solutions to Guatemala's growing business ecosystem. Join our community of innovators today.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#spaces">Spaces</a></li>
+                        <li><a href="#amenities">Amenities</a></li>
+                        <li><a href="#locations">Locations</a></li>
+                        <li><a href="#community">Community</a></li
