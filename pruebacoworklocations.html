@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Locations | Nexo Space Guatemala</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A2463;
+            --primary-light: #1E40AF;
+            --secondary: #FF6B35;
+            --secondary-light: #FF8C61;
+            --accent: #00B4D8;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --dark: #212529;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9fafb;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2.5rem;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 35px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .page-hero {
+            padding-top: 140px;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+        
+        /* Location Filter */
+        .location-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        
+        .filter-btn {
+            padding: 12px 24px;
+            background-color: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        /* Locations Grid */
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .location-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            background: white;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .location-card.featured {
+            border: 3px solid var(--secondary);
+            position: relative;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .location-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .location-image {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .location-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .location-card:hover .location-image img {
+            transform: scale(1.05);
+        }
+        
+        .location-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .location-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .location-zone {
+            display: inline-block;
+            background-color: rgba(10, 36, 99, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .location-details {
+            list-style: none;
+            margin: 20px 0;
+            flex-grow: 1;
+        }
+        
+        .location-details li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .location-details i {
+            color: var(--secondary);
+            margin-right: 10px;
+            width: 20px;
+            margin-top: 3px;
+        }
+        
+        .location-btns {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .location-btns .btn {
+            flex: 1;
+            text-align: center;
+        }
+        
+        /* Comparison Section */
+        .comparison-section {
+            background-color: var(--light);
+        }
+        
+        .comparison-table {
+            overflow-x: auto;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            background: white;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+        
+        thead {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        th {
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        th:first-child {
+            border-radius: var(--border-radius) 0 0 0;
+        }
+        
+        th:last-child {
+            border-radius: 0 var(--border-radius) 0 0;
+        }
+        
+        td {
+            padding: 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .feature-check {
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* Map Section */
+        .map-section {
+            padding: 0;
+            position: relative;
+        }
+        
+        .map-container {
+            height: 500px;
+            width: 100%;
+            position: relative;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            z-index: 1;
+        }
+        
+        .map-overlay h2 {
+            color: white;
+        }
+        
+        .map-overlay p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+        
+        .map-overlay h2:after {
+            background-color: var(--secondary);
+        }
+        
+        /* Neighborhood Guide */
+        .neighborhood-guide {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .neighborhood-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .neighborhood-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .neighborhood-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e3e9ff 100%);
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-links h3, .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .footer-contact p {
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--secondary);
+            width: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .locations-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .neighborhood-guide {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .location-btns {
+                flex-direction: column;
+            }
+            
+            .location-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .page-hero {
+                padding-top: 120px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .map-overlay {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo"><i class="fas fa-cube"></i> Nexo Space</a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="spaces.html">Spaces</a></li>
+                    <li><a href="amenities.html">Amenities</a></li>
+                    <li><a href="locations.html" class="active">Locations</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">Book a Tour</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Strategic Locations Across Guatemala</h1>
+            <p>Discover our premium coworking spaces in Guatemala City's most dynamic business districts. Each location offers unique advantages tailored to different professional needs.</p>
+            <a href="#locations" class="btn btn-secondary">Explore Our Locations</a>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section id="locations">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Premium Locations</h2>
+                <p>Choose from three strategically positioned spaces in Guatemala City's key business zones</p>
+            </div>
+            
+            <!-- Location Filter -->
+            <div class="location-filter">
+                <button class="filter-btn active" data-filter="all">All Locations</button>
+                <button class="filter-btn" data-filter="zone10">Zone 10</button>
+                <button class="filter-btn" data-filter="zone14">Zone 14</button>
+                <button class="filter-btn" data-filter="zone16">Zone 16</button>
+            </div>
+            
+            <!-- Locations Grid -->
+            <div class="locations-grid">
+                <!-- Zone 10 Location -->
+                <div class="location-card featured" data-category="zone10">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="location-image">
+                        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Citibank Tower, Zone 10">
+                    </div>
+                    <div class="location-content">
+                        <h3 class="location-title">Citibank Tower</h3>
+                        <div class="location-zone">Zone 10 - Financial District</div>
+                        <p>Our flagship location in the heart of Guatemala City's financial district, ideal for finance professionals, consultants, and international businesses.</p>
+                        
+                        <ul class="location-details">
+                            <li><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 3rd Avenue 13-78, Zone 10, Guatemala City</li>
+                            <li><i class="fas fa-clock"></i> <strong>Hours:</strong> Mon-Fri 7:00 AM - 9:00 PM, Sat 9:00 AM - 2:00 PM</li>
+                            <li><i class="fas fa-subway"></i> <strong>Transport:</strong> Walking distance to major banks, restaurants, and hotels</li>
+                            <li><i class="fas fa-wifi"></i> <strong>Features:</strong> Premium meeting rooms, business lounge, 24/7 access for dedicated desks</li>
+                            <li><i class="fas fa-users"></i> <strong>Community:</strong> Finance, legal, and consulting professionals</li>
+                        </ul>
+                        
+                        <div class="location-btns">
+                            <a href="contact.html" class="btn btn-primary">Book a Tour</a>
+                            <a href="#zone10-details" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Zone 14 Location -->
+                <div class="location-card" data-category="zone14">
+                    <div class="location-image">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Europlaza, Zone 14">
+                    </div>
+                    <div class="location-content">
+                        <h3 class="location-title">Europlaza</h3>
+                        <div class="location-zone">Zone 14 - Embassy District</div>
+                        <p>Located in the prestigious embassy district, this location offers a sophisticated environment for diplomats, international organizations, and executive teams.</p>
+                        
+                        <ul class="location-details">
+                            <li><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 5th Avenue 5-55, Zone 14, Guatemala City</li>
+                            <li><i class="fas fa-clock"></i> <strong>Hours:</strong> Mon-Fri 8:00 AM - 8:00 PM, Sat 9:00 AM - 1:00 PM</li>
+                            <li><i class="fas fa-subway"></i> <strong>Transport:</strong> Close to embassies, corporate services, and luxury hotels</li>
+                            <li><i class="fas fa-wifi"></i> <strong>Features:</strong> Executive suites, translation services, diplomatic lounge</li>
+                            <li><i class="fas fa-users"></i> <strong>Community:</strong> Diplomats, NGOs, international corporations</li>
+                        </ul>
+                        
+                        <div class="location-btns">
+                            <a href="contact.html" class="btn btn-primary">Book a Tour</a>
+                            <a href="#zone14-details" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Zone 16 Location -->
+                <div class="location-card" data-category="zone16">
+                    <div class="location-image">
+                        <img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Paseo Cayalá, Zone 16">
+                    </div>
+                    <div class="location-content">
+                        <h3 class="location-title">Paseo Cayalá</h3>
+                        <div class="location-zone">Zone 16 - Lifestyle District</div>
+                        <p>Modern workspace in Guatemala's premier lifestyle destination, perfect for creatives, tech startups, and professionals seeking work-life balance.</p>
+                        
+                        <ul class="location-details">
+                            <li><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Boulevard Rafael Landivar 10-05, Zone 16, Guatemala City</li>
+                            <li><i class="fas fa-clock"></i> <strong>Hours:</strong> Mon-Fri 7:30 AM - 9:30 PM, Sat-Sun 9:00 AM - 6:00 PM</li>
+                            <li><i class="fas fa-subway"></i> <strong>Transport:</strong> Connected to shopping, dining, and entertainment venues</li>
+                            <li><i class="fas fa-wifi"></i> <strong>Features:</strong> Outdoor terrace, event space, weekend access</li>
+                            <li><i class="fas fa-users"></i> <strong>Community:</strong> Creatives, tech startups, remote workers</li>
+                        </ul>
+                        
+                        <div class="location-btns">
+                            <a href="contact.html" class="btn btn-primary">Book a Tour</a>
+                            <a href="#zone16-details" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Location Comparison</h2>
+                <p>Compare features across our three premium locations to find your perfect workspace</p>
+            </div>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Features</th>
+                            <th>Zone 10 (Citibank Tower)</th>
+                            <th>Zone 14 (Europlaza)</th>
+                            <th>Zone 16 (Paseo Cayalá)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Business Environment</td>
+                            <td>Financial & corporate district</td>
+                            <td>Embassy & diplomatic district</td>
+                            <td>Lifestyle & creative district</td>
+                        </tr>
+                        <tr>
+                            <td>Best For</td>
+                            <td>Finance, legal, consulting firms</td>
+                            <td>Diplomats, NGOs, international business</td>
+                            <td>Creatives, tech startups, remote workers</td>
+                        </tr>
+                        <tr>
+                            <td>Access Hours</td>
+                            <td>7:00 AM - 9:00 PM (Mon-Fri)<br>9:00 AM - 2:00 PM (Sat)</td>
+                            <td>8:00 AM - 8:00 PM (Mon-Fri)<br>9:00 AM - 1:00 PM (Sat)</td>
+                            <td>7:30 AM - 9:30 PM (Mon-Fri)<br>9:00 AM - 6:00 PM (Weekends)</td>
+                        </tr>
+                        <tr>
+                            <td>Parking Availability</td>
+                            <td><span class="feature-check">✓</span> Underground secured parking</td>
+                            <td><span class="feature-check">✓</span> Valet parking available</td>
+                            <td><span class="feature-check">✓</span> Multi-level parking facility</td>
+                        </tr>
+                        <tr>
+                            <td>Public Transport Access</td>
+                            <td><span class="feature-check">✓</span> Multiple bus routes, taxi stand</td>
+                            <td><span class="feature-check">✓</span> Close to main avenues, taxi service</td>
+                            <td><span class="feature-check">✓</span> Shuttle service, ride-sharing hub</td>
+                        </tr>
+                        <tr>
+                            <td>Nearby Amenities</td>
+                            <td>Banks, corporate dining, hotels</td>
+                            <td>Embassies, luxury restaurants, clinics</td>
+                            <td>Shopping, entertainment, parks</td>
+                        </tr>
+                        <tr>
+                            <td>Special Features</td>
+                            <td>Premium meeting rooms, 24/7 access for members</td>
+                            <td>Diplomatic lounge, translation services</td>
+                            <td>Outdoor workspace, event terrace</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <!-- This would typically be an embedded Google Map -->
+            <div style="width: 100%; height: 100%; background-color: #e5e7eb; display: flex; align-items: center; justify-content: center; color: var(--gray);">
+                <div style="text-align: center; padding: 20px;">
+                    <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 15px; color: var(--primary);"></i>
+                    <h3 style="color: var(--dark);">Interactive Location Map</h3>
+                    <p>In a live implementation, this would display an interactive<br>map showing all Nexo Space locations in Guatemala City.</p>
+                </div>
+            </div>
+            
+            <div class="map-overlay" style="background: linear-gradient(135deg, rgba(10, 36, 99, 0.85) 0%, rgba(30, 64, 175, 0.85) 100%);">
+                <h2>Find Your Nearest Location</h2>
+                <p>All our locations are strategically positioned in Guatemala City's most dynamic districts with excellent transportation links and nearby amenities.</p>
+                <a href="contact.html" class="btn btn-secondary">Get Directions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Neighborhood Guide -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Neighborhood Guides</h2>
+                <p>Discover what makes each of our locations unique</p>
+            </div>
+            
+            <div class="neighborhood-guide">
+                <div class="neighborhood-card">
+                    <div class="neighborhood-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Zone 10 - Financial Hub</h3>
+                    <p>Guatemala City's central business district with proximity to major banks, corporate headquarters, and international businesses. Ideal for finance and legal professionals.</p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li>Walking distance to 20+ banks</li>
+                        <li>Corporate dining options</li>
+                        <li>International hotel access</li>
+                        <li>Secure business environment</li>
+                    </ul>
+                </div>
+                
+                <div class="neighborhood-card">
+                    <div class="neighborhood-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>Zone 14 - Diplomatic Center</h3>
+                    <p>The prestigious embassy district offering a sophisticated environment with proximity to diplomatic missions, luxury services, and international organizations.</p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li>Close to multiple embassies</li>
+                        <li>High-security environment</li>
+                        <li>Luxury dining and services</li>
+                        <li>International community</li>
+                    </ul>
+                </div>
+                
+                <div class="neighborhood-card">
+                    <div class="neighborhood-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Zone 16 - Creative Corridor</h3>
+                    <p>Guatemala's premier lifestyle destination blending work and leisure with access to shopping, dining, entertainment, and cultural venues.</p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li>Connected to Paseo Cayalá</li>
+                        <li>Variety of restaurants & cafes</li>
+                        <li>Entertainment venues</li>
+                        <li>Weekend accessibility</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Can't Decide Which Location Is Right For You?</h2>
+            <p>Our location specialists can help you choose the perfect workspace based on your business needs, team requirements, and working style. Schedule a consultation today.</p>
+            <a href="contact.html" class="btn btn-secondary">Schedule a Location Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo"><i class="fas fa-cube"></i> Nexo Space</a>
+                    <p>Bringing modern, flexible coworking solutions to Guatemala's growing business ecosystem. Join our community of innovators today.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="spaces.html">Spaces</a></li>
+                        <li><a href="amenities.html">Amenities</a></li>
+                        <li><a href="locations.html">Locations</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 3rd Avenue 13-78, Zone 10, Guatemala City</p>
+                    <p><i class="fas fa-phone"></i> +502 2200 1234</p>
+                    <p><i class="fas fa-envelope"></i> info@nexospacegt.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 8:00 PM, Sat: 9:00 AM - 2:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Nexo Space Guatemala. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Location filtering functionality
+        const filter

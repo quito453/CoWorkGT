@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Amenities | Nexo Space Guatemala</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A2463;
+            --primary-light: #1E40AF;
+            --secondary: #FF6B35;
+            --secondary-light: #FF8C61;
+            --accent: #00B4D8;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --dark: #212529;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9fafb;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2.5rem;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 35px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .page-hero {
+            padding-top: 140px;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+        
+        /* Amenities Intro */
+        .amenities-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .amenities-intro p {
+            font-size: 1.1rem;
+        }
+        
+        /* Category Tabs */
+        .amenity-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        
+        .category-btn {
+            padding: 12px 24px;
+            background-color: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .category-btn i {
+            margin-right: 8px;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        /* Amenities Grid */
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .amenity-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .amenity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .amenity-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .amenity-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .amenity-card:hover .amenity-image img {
+            transform: scale(1.05);
+        }
+        
+        .amenity-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .amenity-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .amenity-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .amenity-features {
+            list-style: none;
+            margin: 20px 0;
+            flex-grow: 1;
+        }
+        
+        .amenity-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .amenity-features i {
+            color: var(--secondary);
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        /* Premium Features Section */
+        .premium-section {
+            background-color: var(--light);
+        }
+        
+        .premium-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .premium-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .premium-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--secondary-light));
+        }
+        
+        .premium-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .premium-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        /* Facilities Gallery */
+        .facilities-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Included Section */
+        .included-section {
+            background-color: var(--light);
+        }
+        
+        .included-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .included-list {
+            list-style: none;
+        }
+        
+        .included-list li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .included-list i {
+            color: var(--secondary);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+        
+        .included-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .included-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e3e9ff 100%);
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-links h3, .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .footer-contact p {
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--secondary);
+            width: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .amenities-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .amenity-categories {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .category-btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+            
+            .page-hero {
+                padding-top: 120px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .amenities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .facilities-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo"><i class="fas fa-cube"></i> Nexo Space</a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="spaces.html">Spaces</a></li>
+                    <li><a href="amenities.html" class="active">Amenities</a></li>
+                    <li><a href="locations.html">Locations</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">Book a Tour</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Premium Amenities & Facilities</h1>
+            <p>Experience the difference with our carefully curated amenities designed to enhance productivity, foster connections, and support your business growth in Guatemala.</p>
+            <a href="#amenities" class="btn btn-secondary">Explore Amenities</a>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section id="amenities">
+        <div class="container">
+            <div class="amenities-intro">
+                <h2>Everything You Need to Succeed</h2>
+                <p>We've thought of every detail to create an environment where you can focus on what matters most—growing your business. All amenities are included with your membership.</p>
+            </div>
+            
+            <!-- Category Tabs -->
+            <div class="amenity-categories">
+                <button class="category-btn active" data-category="all">
+                    <i class="fas fa-th-large"></i> All Amenities
+                </button>
+                <button class="category-btn" data-category="workspace">
+                    <i class="fas fa-laptop"></i> Workspace Essentials
+                </button>
+                <button class="category-btn" data-category="community">
+                    <i class="fas fa-users"></i> Community Features
+                </button>
+                <button class="category-btn" data-category="wellness">
+                    <i class="fas fa-heart"></i> Wellness & Comfort
+                </button>
+                <button class="category-btn" data-category="business">
+                    <i class="fas fa-briefcase"></i> Business Services
+                </button>
+            </div>
+            
+            <!-- Amenities Grid -->
+            <div class="amenities-grid">
+                <!-- High-Speed Internet -->
+                <div class="amenity-card" data-category="workspace">
+                    <div class="amenity-image">
+                        <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="High-Speed Internet">
+                    </div>
+                    <div class="amenity-content">
+                        <div class="amenity-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <h3 class="amenity-title">High-Speed Fiber Internet</h3>
+                        <p>Enterprise-grade fiber optic internet with dedicated bandwidth and backup connections to ensure you're always online and productive.</p>
+                        
+                        <ul class="amenity-features">
+                            <li><i class="fas fa-check"></i> Symmetrical 1 Gbps speeds</li>
+                            <li><i class="fas fa-check"></i> Redundant backup connections</li>
+                            <li><i class="fas fa-check"></i> Secure VPN support</li>
+                            <li><i class="fas fa-check"></i> 24/7 network monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Meeting Rooms -->
+                <div class="amenity-card" data-category="workspace business">
+                    <div class="amenity-image">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Meeting Rooms">
+                    </div>
+                    <div class="amenity-content">
+                        <div class="amenity-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3 class="amenity-title">Professional Meeting Rooms</h3>
+                        <p>Fully equipped meeting spaces with state-of-the-art technology for presentations, video conferences, and client meetings.</p>
+                        
+                        <ul class="amenity-features">
+                            <li><i class="fas fa-check"></i> 4K displays & video conferencing</li>
+                            <li><i class="fas fa-check"></i> Interactive whiteboards</li>
+                            <li><i class="fas fa-check"></i> Acoustic soundproofing</li>
+                            <li><i class="fas fa-check"></i> Booking system integration</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Kitchen & Dining -->
+                <div class="amenity-card" data-category="wellness community">
+                    <div class="amenity-image">
+                        <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80" alt="Kitchen & Dining">
+                    </div>
+                    <div class="amenity-content">
+                        <div class="amenity-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <h3 class="amenity-title">Gourmet Kitchen & Café</h3>
+                        <p>Fully stocked kitchens with premium coffee, teas, snacks, and dining areas designed for networking and casual meetings.</p>
+                        
+                        <ul class="amenity-features">
+                            <li><i class="fas fa-check"></i> Specialty coffee & espresso</li>
+                            <li><i class="fas fa-check"></i> Complimentary snacks</li>
+                            <li><i class="fas fa-check"></i> Refrigerator & microwave access</li>
+                            <li><i class="fas fa-check"></i> Dining & lounge areas</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Printing & Tech -->
+                <div class="amenity-card" data-category="business workspace">
+                    <div class="amenity-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Printing & Tech">
+                    </div>
+                    <div class="amenity-content">
+                        <div class="amenity-icon">
+                            <i class="fas fa-print"></i>
+                        </div>
+                        <h3 class="amenity-title">Printing & Tech Support</h3>
+                        <p>Professional printing facilities and on-site technical support to ensure your business operations run smoothly.</p>
+                        
+                        <ul class="amenity-features">
+                            <li><i class="fas fa-check"></i> High-volume color printing</li>
+                            <li><i class="fas fa-check"></i> Scanning & copying services</li>
+                            <li><i class="fas fa-check"></i> On-site IT assistance</li>
+                            <li><i class="fas fa-check"></i> Equipment rental options</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Wellness Room -->
+                <div class="amenity-card" data-category="wellness">
+                    <div class="amenity-image">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2020&q=80" alt="Wellness Room">
+                    </div>
+                    <div class="amenity-content">
+                        <div class="amenity-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3 class="amenity-title">Wellness & Meditation Room</h3>
+                        <p>Dedicated quiet spaces for meditation, prayer, or simply taking a break from work to recharge and refocus.</p>
+                        
+                        <ul class="amenity-features">
+                            <li><i class="fas fa-check"></i> Soundproof meditation space</li>
+                            <li><i class="fas fa-check"></i> Yoga mats & props</li>
+                            <li><i class="fas fa-check"></i> Guided meditation resources</li>
+                            <li><i class="fas fa-check"></i> Natural light & plants</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Event Space -->
+                <div class="amenity-card" data-category="community business">
+                    <div class="amenity-image">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Event Space">
+                    </div>
+                    <div class="amenity-content">
+                        <div class="amenity-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="amenity-title">Event & Workshop Space</h3>
+                        <p>Versatile event spaces perfect for workshops, networking events, product launches, and team building activities.</p>
+                        
+                        <ul class="amenity-features">
+                            <li><i class="fas fa-check"></i> Capacity up to 150 people</li>
+                            <li><i class="fas fa-check"></i> Professional AV equipment</li>
+                            <li><i class="fas fa-check"></i> Catering kitchen access</li>
+                            <li><i class="fas fa-check"></i> Event planning support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Features Section -->
+    <section class="premium-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Exclusive Premium Features</h2>
+                <p>Beyond the basics, Nexo Space offers exclusive amenities that set us apart</p>
+            </div>
+            
+            <div class="premium-grid">
+                <div class="premium-card">
+                    <div class="premium-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h3>Business Concierge</h3>
+                    <p>Professional reception and concierge services to handle your mail, greet clients, and assist with administrative tasks.</p>
+                </div>
+                
+                <div class="premium-card">
+                    <div class="premium-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Advanced Security</h3>
+                    <p>24/7 secure access, surveillance, and individual lockers to ensure your belongings and data are always protected.</p>
+                </div>
+                
+                <div class="premium-card">
+                    <div class="premium-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Member Network</h3>
+                    <p>Access to our exclusive member directory and networking platform to connect with other professionals in Guatemala.</p>
+                </div>
+                
+                <div class="premium-card">
+                    <div class="premium-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Logistics Support</h3>
+                    <p>Package receiving, shipping services, and partnerships with local couriers to streamline your business operations.</p>
+                </div>
+            </div>
+            
+            <!-- Facilities Gallery -->
+            <div class="facilities-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Lounge Area">
+                    <div class="gallery-overlay">
+                        <h4>Relaxation Lounge</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Phone Booth">
+                    <div class="gallery-overlay">
+                        <h4>Private Phone Booths</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2028&q=80" alt="Outdoor Terrace">
+                    <div class="gallery-overlay">
+                        <h4>Outdoor Terrace</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Included Section -->
+    <section class="included-section">
+        <div class="container">
+            <div class="included-content">
+                <div>
+                    <h2>All Included in Your Membership</h2>
+                    <p>When you join Nexo Space, you gain access to our complete suite of amenities designed to support your business growth.</p>
+                    
+                    <ul class="included-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>No Hidden Fees</h4>
+                                <p>All amenities are included in your monthly membership with no extra charges.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>24/7 Access</h4>
+                                <p>Most amenities are available around the clock to accommodate your schedule.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Regular Upgrades</h4>
+                                <p>We continuously improve and add new amenities based on member feedback.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Priority Booking</h4>
+                                <p>Members receive priority access to meeting rooms and event spaces.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="included-image">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Nexo Space Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Experience Our Amenities Firsthand</h2>
+            <p>See how our premium amenities can transform your workday and boost your productivity. Book a tour to explore our facilities in person.</p>
+            <a href="contact.html" class="btn btn-secondary">Schedule a Tour Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo"><i class="fas fa-cube"></i> Nexo Space</a>
+                    <p>Bringing modern, flexible coworking solutions to Guatemala's growing business ecosystem. Join our community of innovators today.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="spaces.html">Spaces</a></li>
+                        <li><a href="amenities.html">Amenities</a></li>
+                        <li><a href="locations.html">Locations</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 3rd Avenue 13-78, Zone 10, Guatemala City</p>
+                    <p><i class="fas fa-phone"></i> +502 1234 5678</p>
+                    <p><i class="fas fa-envelope"></i> info@nexospacegt.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 8:00 PM, Sat: 9:00 AM - 2:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Nexo Space Guatemala. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {

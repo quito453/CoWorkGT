@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workspace Solutions | Nexo Space Guatemala</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A2463;
+            --primary-light: #1E40AF;
+            --secondary: #FF6B35;
+            --secondary-light: #FF8C61;
+            --accent: #00B4D8;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --dark: #212529;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9fafb;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2.5rem;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 35px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .page-hero {
+            padding-top: 140px;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+        
+        /* Spaces Section */
+        .spaces-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .spaces-intro p {
+            font-size: 1.1rem;
+        }
+        
+        /* Filter Buttons */
+        .space-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        
+        .filter-btn {
+            padding: 12px 24px;
+            background-color: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        /* Spaces Grid */
+        .spaces-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .space-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            background: white;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .space-card.featured {
+            border: 3px solid var(--secondary);
+            position: relative;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .space-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .space-image {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .space-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .space-card:hover .space-image img {
+            transform: scale(1.05);
+        }
+        
+        .space-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .space-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .space-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .space-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--gray);
+        }
+        
+        .space-features {
+            list-style: none;
+            margin: 20px 0;
+            flex-grow: 1;
+        }
+        
+        .space-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .space-features i {
+            color: var(--secondary);
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        .space-btns {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .space-btns .btn {
+            flex: 1;
+            text-align: center;
+        }
+        
+        /* Comparison Table */
+        .comparison-section {
+            background-color: var(--light);
+        }
+        
+        .comparison-table {
+            overflow-x: auto;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            background: white;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+        
+        thead {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        th {
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        th:first-child {
+            border-radius: var(--border-radius) 0 0 0;
+        }
+        
+        th:last-child {
+            border-radius: 0 var(--border-radius) 0 0;
+        }
+        
+        th.featured {
+            background-color: var(--secondary);
+        }
+        
+        td {
+            padding: 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .feature-check {
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e3e9ff 100%);
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-links h3, .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .footer-contact p {
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--secondary);
+            width: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .spaces-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .space-btns {
+                flex-direction: column;
+            }
+            
+            .page-hero {
+                padding-top: 120px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .spaces-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .space-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo"><i class="fas fa-cube"></i> Nexo Space</a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="spaces.html" class="active">Spaces</a></li>
+                    <li><a href="amenities.html">Amenities</a></li>
+                    <li><a href="locations.html">Locations</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">Book a Tour</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Flexible Workspace Solutions</h1>
+            <p>Choose from a variety of modern workspace options designed to fit your business needs and budget. From hot desks to private offices, we have the perfect space for you.</p>
+            <a href="#spaces" class="btn btn-secondary">View All Spaces</a>
+        </div>
+    </section>
+
+    <!-- Spaces Section -->
+    <section id="spaces">
+        <div class="container">
+            <div class="spaces-intro">
+                <h2>Find Your Perfect Workspace</h2>
+                <p>Our flexible plans allow you to scale up or down as your business evolves. All plans include high-speed internet, access to common areas, and participation in community events.</p>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="space-filters">
+                <button class="filter-btn active" data-filter="all">All Spaces</button>
+                <button class="filter-btn" data-filter="hot-desk">Hot Desks</button>
+                <button class="filter-btn" data-filter="dedicated">Dedicated Desks</button>
+                <button class="filter-btn" data-filter="private">Private Offices</button>
+                <button class="filter-btn" data-filter="meeting">Meeting Rooms</button>
+            </div>
+            
+            <!-- Spaces Grid -->
+            <div class="spaces-grid">
+                <!-- Hot Desk Card -->
+                <div class="space-card" data-category="hot-desk">
+                    <div class="space-image">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Hot Desk Area">
+                    </div>
+                    <div class="space-content">
+                        <h3 class="space-title">Hot Desk</h3>
+                        <p>Flexible access to shared workspaces with high-speed internet and communal amenities.</p>
+                        <div class="space-price">From Q850<span>/month</span></div>
+                        
+                        <ul class="space-features">
+                            <li><i class="fas fa-check"></i> Flexible seating in shared areas</li>
+                            <li><i class="fas fa-check"></i> High-speed fiber internet</li>
+                            <li><i class="fas fa-check"></i> Complimentary coffee & tea</li>
+                            <li><i class="fas fa-check"></i> Access to common areas</li>
+                            <li><i class="fas fa-check"></i> Business address service</li>
+                        </ul>
+                        
+                        <div class="space-btns">
+                            <a href="contact.html" class="btn btn-primary">Book Now</a>
+                            <a href="#hot-desk-details" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dedicated Desk Card -->
+                <div class="space-card featured" data-category="dedicated">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="space-image">
+                        <img src="https://images.unsplash.com/photo-1564069114553-7215e1ff1890?ixlib=rb-4.0.3&auto=format&fit=crop&w=2032&q=80" alt="Dedicated Desk">
+                    </div>
+                    <div class="space-content">
+                        <h3 class="space-title">Dedicated Desk</h3>
+                        <p>Your own personal workspace in a shared environment with storage and 24/7 access.</p>
+                        <div class="space-price">From Q1,600<span>/month</span></div>
+                        
+                        <ul class="space-features">
+                            <li><i class="fas fa-check"></i> Personal dedicated workspace</li>
+                            <li><i class="fas fa-check"></i> 24/7 secure access</li>
+                            <li><i class="fas fa-check"></i> Lockable storage cabinet</li>
+                            <li><i class="fas fa-check"></i> All Hot Desk amenities included</li>
+                            <li><i class="fas fa-check"></i> Mail handling service</li>
+                        </ul>
+                        
+                        <div class="space-btns">
+                            <a href="contact.html" class="btn btn-primary">Book Now</a>
+                            <a href="#dedicated-details" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Private Office Card -->
+                <div class="space-card" data-category="private">
+                    <div class="space-image">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Private Office">
+                    </div>
+                    <div class="space-content">
+                        <h3 class="space-title">Private Office</h3>
+                        <p>Fully furnished private offices for teams of 2-10 people with custom configuration options.</p>
+                        <div class="space-price">From Q3,500<span>/month</span></div>
+                        
+                        <ul class="space-features">
+                            <li><i class="fas fa-check"></i> Fully furnished private space</li>
+                            <li><i class="fas fa-check"></i> Customizable layout options</li>
+                            <li><i class="fas fa-check"></i> Team sizes from 2-10 people</li>
+                            <li><i class="fas fa-check"></i> All Dedicated Desk amenities</li>
+                            <li><i class="fas fa-check"></i> Conference room credits</li>
+                        </ul>
+                        
+                        <div class="space-btns">
+                            <a href="contact.html" class="btn btn-primary">Book Now</a>
+                            <a href="#private-details" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Meeting Room Card -->
+                <div class="space-card" data-category="meeting">
+                    <div class="space-image">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Meeting Room">
+                    </div>
+                    <div class="space-content">
+                        <h3 class="space-title">Meeting Room</h3>
+                        <p>Professional meeting spaces equipped with state-of-the-art technology for presentations and collaborations.</p>
+                        <div class="space-price">From Q250<span>/hour</span></div>
+                        
+                        <ul class="space-features">
+                            <li><i class="fas fa-check"></i> Professional meeting environment</li>
+                            <li><i class="fas fa-check"></i> Video conferencing equipment</li>
+                            <li><i class="fas fa-check"></i> Whiteboards & presentation tools</li>
+                            <li><i class="fas fa-check"></i> High-speed internet</li>
+                            <li><i class="fas fa-check"></i> Catering services available</li>
+                        </ul>
+                        
+                        <div class="space-btns">
+                            <a href="contact.html" class="btn btn-primary">Book Now</a>
+                            <a href="#meeting-details" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Virtual Office Card -->
+                <div class="space-card" data-category="virtual">
+                    <div class="space-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Virtual Office">
+                    </div>
+                    <div class="space-content">
+                        <h3 class="space-title">Virtual Office</h3>
+                        <p>Establish a professional business presence with mail handling and occasional workspace access.</p>
+                        <div class="space-price">From Q500<span>/month</span></div>
+                        
+                        <ul class="space-features">
+                            <li><i class="fas fa-check"></i> Professional business address</li>
+                            <li><i class="fas fa-check"></i> Mail & package handling</li>
+                            <li><i class="fas fa-check"></i> 5 days/month hot desk access</li>
+                            <li><i class="fas fa-check"></i> Phone answering service</li>
+                            <li><i class="fas fa-check"></i> Meeting room discounts</li>
+                        </ul>
+                        
+                        <div class="space-btns">
+                            <a href="contact.html" class="btn btn-primary">Book Now</a>
+                            <a href="#virtual-details" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Suite Card -->
+                <div class="space-card" data-category="private">
+                    <div class="space-image">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Team Suite">
+                    </div>
+                    <div class="space-content">
+                        <h3 class="space-title">Team Suite</h3>
+                        <p>Larger private offices for teams of 10-30 people with dedicated facilities and custom branding options.</p>
+                        <div class="space-price">From Q12,000<span>/month</span></div>
+                        
+                        <ul class="space-features">
+                            <li><i class="fas fa-check"></i> Large private office suite</li>
+                            <li><i class="fas fa-check"></i> Custom branding options</li>
+                            <li><i class="fas fa-check"></i> Dedicated meeting room</li>
+                            <li><i class="fas fa-check"></i> Kitchenette & break area</li>
+                            <li><i class="fas fa-check"></i> Priority support</li>
+                        </ul>
+                        
+                        <div class="space-btns">
+                            <a href="contact.html" class="btn btn-primary">Book Now</a>
+                            <a href="#suite-details" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Plan Comparison</h2>
+                <p>Compare features across our different workspace solutions to find the best fit for your needs</p>
+            </div>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Features</th>
+                            <th>Hot Desk</th>
+                            <th class="featured">Dedicated Desk</th>
+                            <th>Private Office</th>
+                            <th>Virtual Office</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>24/7 Building Access</td>
+                            <td><span class="feature-check">✓</span> Business Hours</td>
+                            <td class="featured"><span class="feature-check">✓</span> 24/7 Access</td>
+                            <td><span class="feature-check">✓</span> 24/7 Access</td>
+                            <td><span class="feature-check">✓</span> By Appointment</td>
+                        </tr>
+                        <tr>
+                            <td>High-Speed Internet</td>
+                            <td><span class="feature-check">✓</span> Included</td>
+                            <td class="featured"><span class="feature-check">✓</span> Included</td>
+                            <td><span class="feature-check">✓</span> Included</td>
+                            <td><span class="feature-check">✓</span> When On-site</td>
+                        </tr>
+                        <tr>
+                            <td>Meeting Room Credits</td>
+                            <td>2 hours/month</td>
+                            <td class="featured">4 hours/month</td>
+                            <td>8 hours/month</td>
+                            <td>Discounts Only</td>
+                        </tr>
+                        <tr>
+                            <td>Mail Handling</td>
+                            <td><span class="feature-check">✓</span> Basic</td>
+                            <td class="featured"><span class="feature-check">✓</span> Standard</td>
+                            <td><span class="feature-check">✓</span> Premium</td>
+                            <td><span class="feature-check">✓</span> Standard</td>
+                        </tr>
+                        <tr>
+                            <td>Storage Space</td>
+                            <td>Small Locker</td>
+                            <td class="featured">Lockable Cabinet</td>
+                            <td>Ample Storage</td>
+                            <td>Not Included</td>
+                        </tr>
+                        <tr>
+                            <td>Community Events</td>
+                            <td><span class="feature-check">✓</span> Included</td>
+                            <td class="featured"><span class="feature-check">✓</span> Included</td>
+                            <td><span class="feature-check">✓</span> Included</td>
+                            <td><span class="feature-check">✓</span> Invitation Only</td>
+                        </tr>
+                        <tr>
+                            <td>Contract Flexibility</td>
+                            <td>Month-to-month</td>
+                            <td class="featured">3-month min.</td>
+                            <td>6-month min.</td>
+                            <td>Month-to-month</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Not Sure Which Space Is Right For You?</h2>
+            <p>Our workspace consultants can help you choose the perfect option based on your team size, budget, and working style. Book a tour to experience our spaces firsthand.</p>
+            <a href="contact.html" class="btn btn-secondary">Schedule a Personalized Tour</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo"><i class="fas fa-cube"></i> Nexo Space</a>
+                    <p>Bringing modern, flexible coworking solutions to Guatemala's growing business ecosystem. Join our community of innovators today.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="spaces.html">Spaces</a></li>
+                        <li><a href="amenities.html">Amenities</a></li>
+                        <li><a href="locations.html">Locations</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 3rd Avenue 13-78, Zone 10, Guatemala City</p>
+                    <p><i class="fas fa-phone"></i> +502 1234 5678</p>
+                    <p><i class="fas fa-envelope"></i> info@nexospacegt.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 8:00 PM, Sat: 9:00 AM - 2:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Nexo Space Guatemala. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Space filtering functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const spaceCards = document.querySelectorAll('.space-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filterValue = btn.getAttribute('data-filter');
+                
+                spaceCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '12px 0';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '20px 0';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community & Networking | Nexo Space Guatemala</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A2463;
+            --primary-light: #1E40AF;
+            --secondary: #FF6B35;
+            --secondary-light: #FF8C61;
+            --accent: #00B4D8;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --dark: #212529;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9fafb;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2.5rem;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 35px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .page-hero {
+            padding-top: 140px;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+        
+        /* Community Intro */
+        .community-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .community-intro p {
+            font-size: 1.1rem;
+        }
+        
+        /* Community Stats */
+        .community-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        /* Events Section */
+        .events-section {
+            background-color: var(--light);
+        }
+        
+        .events-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        
+        .event-filter-btn {
+            padding: 12px 24px;
+            background-color: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .event-filter-btn:hover, .event-filter-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .event-card.featured {
+            border: 3px solid var(--secondary);
+            position: relative;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .event-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .event-card:hover .event-image img {
+            transform: scale(1.05);
+        }
+        
+        .event-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .event-date {
+            display: flex;
+            align-items: center;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .event-date i {
+            margin-right: 8px;
+        }
+        
+        .event-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .event-details {
+            list-style: none;
+            margin: 20px 0;
+            flex-grow: 1;
+        }
+        
+        .event-details li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .event-details i {
+            color: var(--secondary);
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        /* Member Stories */
+        .stories-section {
+            background-color: white;
+        }
+        
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .story-card {
+            background: var(--light);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .member-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid white;
+            box-shadow: var(--shadow);
+        }
+        
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .member-quote {
+            font-style: italic;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .member-quote:before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--secondary-light);
+            position: absolute;
+            top: -15px;
+            left: -10px;
+            opacity: 0.3;
+        }
+        
+        /* Partnerships */
+        .partnerships-section {
+            background-color: var(--light);
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .partner-logo {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+            transition: var(--transition);
+        }
+        
+        .partner-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 80px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        
+        .partner-logo:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        /* Member Perks */
+        .perks-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+        }
+        
+        .perks-section h2 {
+            color: white;
+        }
+        
+        .perks-section h2:after {
+            background-color: var(--secondary);
+        }
+        
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .perk-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+        
+        .perk-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .perk-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-links h3, .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .footer-contact p {
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--secondary);
+            width: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .events-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .community-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .events-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .event-filter-btn {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .community-stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .page-hero {
+                padding-top: 120px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo"><i class="fas fa-cube"></i> Nexo Space</a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="spaces.html">Spaces</a></li>
+                    <li><a href="amenities.html">Amenities</a></li>
+                    <li><a href="locations.html">Locations</a></li>
+                    <li><a href="community.html" class="active">Community</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">Book a Tour</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Connect, Collaborate & Grow</h1>
+            <p>Join Guatemala's most dynamic community of innovators, entrepreneurs, and professionals. At Nexo Space, we believe connection drives innovation.</p>
+            <a href="#events" class="btn btn-secondary">View Upcoming Events</a>
+        </div>
+    </section>
+
+    <!-- Community Stats -->
+    <section>
+        <div class="container">
+            <div class="community-intro">
+                <h2>Our Thriving Community</h2>
+                <p>Become part of a diverse network of professionals, startups, and established businesses who are shaping Guatemala's future.</p>
+            </div>
+            
+            <div class="community-stats">
+                <div class="stat-card">
+                    <div class="stat-number">650+</div>
+                    <h3>Active Members</h3>
+                    <p>Professionals from diverse industries</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">180+</div>
+                    <h3>Businesses</h3>
+                    <p>Startups to established companies</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">45+</div>
+                    <h3>Monthly Events</h3>
+                    <p>Workshops, networking, and socials</p>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">96%</div>
+                    <h3>Member Satisfaction</h3>
+                    <p>Based on our latest member survey</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events-section" id="events">
+        <div class="container">
+            <div class="section-header">
+                <h2>Upcoming Events & Workshops</h2>
+                <p>Join our regular events designed to foster connections, share knowledge, and grow your business</p>
+            </div>
+            
+            <!-- Events Filter -->
+            <div class="events-filter">
+                <button class="event-filter-btn active" data-filter="all">All Events</button>
+                <button class="event-filter-btn" data-filter="networking">Networking</button>
+                <button class="event-filter-btn" data-filter="workshop">Workshops</button>
+                <button class="event-filter-btn" data-filter="social">Social Events</button>
+                <button class="event-filter-btn" data-filter="business">Business Growth</button>
+            </div>
+            
+            <!-- Events Grid -->
+            <div class="events-grid">
+                <!-- Featured Event -->
+                <div class="event-card featured" data-category="networking">
+                    <div class="featured-badge">Featured Event</div>
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Monthly Networking Mixer">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="far fa-calendar"></i> October 25, 2023 | 6:00 PM - 8:00 PM
+                        </div>
+                        <h3 class="event-title">Monthly Networking Mixer</h3>
+                        <p>Connect with fellow professionals over drinks and appetizers in our flagship Zone 10 location. Perfect for expanding your business network in Guatemala.</p>
+                        
+                        <ul class="event-details">
+                            <li><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Citibank Tower, Zone 10</li>
+                            <li><i class="fas fa-user-friends"></i> <strong>Attendees:</strong> 80+ professionals expected</li>
+                            <li><i class="fas fa-tag"></i> <strong>Cost:</strong> Free for members, Q100 for guests</li>
+                            <li><i class="fas fa-wine-glass-alt"></i> <strong>Includes:</strong> Drinks & appetizers</li>
+                        </ul>
+                        
+                        <a href="contact.html" class="btn btn-primary" style="margin-top: 20px;">RSVP Now</a>
+                    </div>
+                </div>
+                
+                <!-- Workshop Event -->
+                <div class="event-card" data-category="workshop business">
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Digital Marketing Workshop">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="far fa-calendar"></i> October 30, 2023 | 3:00 PM - 5:30 PM
+                        </div>
+                        <h3 class="event-title">Digital Marketing for Guatemalan Businesses</h3>
+                        <p>Learn effective digital marketing strategies tailored to the Guatemalan market with expert María González from Digital Solutions GT.</p>
+                        
+                        <ul class="event-details">
+                            <li><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Paseo Cayalá, Zone 16</li>
+                            <li><i class="fas fa-user-friends"></i> <strong>Capacity:</strong> Limited to 30 participants</li>
+                            <li><i class="fas fa-tag"></i> <strong>Cost:</strong> Q200 (Q150 for members)</li>
+                            <li><i class="fas fa-certificate"></i> <strong>Includes:</strong> Workbook & certificate</li>
+                        </ul>
+                        
+                        <a href="contact.html" class="btn btn-outline" style="margin-top: 20px;">Register Now</a>
+                    </div>
+                </div>
+                
+                <!-- Social Event -->
+                <div class="event-card" data-category="social">
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Entrepreneur Breakfast">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="far fa-calendar"></i> November 3, 2023 | 8:00 AM - 10:00 AM
+                        </div>
+                        <h3 class="event-title">Founder's Breakfast Roundtable</h3>
+                        <p>Intimate breakfast discussion for startup founders and business owners to share challenges and solutions in Guatemala's ecosystem.</p>
+                        
+                        <ul class="event-details">
+                            <li><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Europlaza, Zone 14</li>
+                            <li><i class="fas fa-user-friends"></i> <strong>Format:</strong> Roundtable discussion</li>
+                            <li><i class="fas fa-tag"></i> <strong>Cost:</strong> Q150 (includes breakfast)</li>
+                            <li><i class="fas fa-utensils"></i> <strong>Includes:</strong> Full breakfast</li>
+                        </ul>
+                        
+                        <a href="contact.html" class="btn btn-outline" style="margin-top: 20px;">Join Discussion</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Member Stories -->
+    <section class="stories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Member Success Stories</h2>
+                <p>Hear from professionals who have grown their businesses through our community</p>
+            </div>
+            
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="member-photo">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="María González">
+                    </div>
+                    <h3>María González</h3>
+                    <p class="member-title">Founder, Digital Solutions GT</p>
+                    <p class="member-quote">"Through Nexo Space's networking events, I secured three major clients within two months. The community has been instrumental in growing my digital marketing agency."</p>
+                    <div class="member-stats">
+                        <p><strong>Member since:</strong> 2022</p>
+                        <p><strong>Growth:</strong> 200% revenue increase</p>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="member-photo">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Carlos Mendoza">
+                    </div>
+                    <h3>Carlos Mendoza</h3>
+                    <p class="member-title">CEO, TechSolutions GT</p>
+                    <p class="member-quote">"The collaborative environment at Nexo Space helped us find our lead developer and two strategic partners. It's more than an office - it's a business ecosystem."</p>
+                    <div class="member-stats">
+                        <p><strong>Member since:</strong> 2021</p>
+                        <p><strong>Growth:</strong> Team expanded from 2 to 8</p>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="member-photo">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Ana López">
+                    </div>
+                    <h3>Ana López</h3>
+                    <p class="member-title">Freelance UX Designer</p>
+                    <p class="member-quote">"As a remote worker, I was looking for community. At Nexo Space I found collaborators, clients, and friends. The member directory alone has been worth the membership."</p>
+                    <div class="member-stats">
+                        <p><strong>Member since:</strong> 2023</p>
+                        <p><strong>Growth:</strong> 5 new ongoing clients</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnerships -->
+    <section class="partnerships-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Community Partners</h2>
+                <p>We collaborate with leading organizations to bring exclusive benefits to our members</p>
+            </div>
+            
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <!-- In a real implementation, these would be actual logo images -->
+                    <div style="text-align: center; color: var(--primary); font-weight: 700; font-size: 1.2rem;">Startup Guatemala</div>
+                </div>
+                
+                <div class="partner-logo">
+                    <div style="text-align: center; color: var(--primary); font-weight: 700; font-size: 1.2rem;">GuateDigital</div>
+                </div>
+                
+                <div class="partner-logo">
+                    <div style="text-align: center; color: var(--primary); font-weight: 700; font-size: 1.2rem;">Banco Industrial</div>
+                </div>
+                
+                <div class="partner-logo">
+                    <div style="text-align: center; color: var(--primary); font-weight: 700; font-size: 1.2rem;">Cámara de Comercio</div>
+                </div>
+                
+                <div class="partner-logo">
+                    <div style="text-align: center; color: var(--primary); font-weight: 700; font-size: 1.2rem;">Google for Startups</div>
+                </div>
+                
+                <div class="partner-logo">
+                    <div style="text-align: center; color: var(--primary); font-weight: 700; font-size: 1.2rem;">AWS Activate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Member Perks -->
+    <section class="perks-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Exclusive Member Perks</h2>
+                <p>Beyond workspace, our members enjoy exclusive benefits and discounts</p>
+            </div>
+            
+            <div class="perks-grid">
+                <div class="perk-card">
+                    <div class="perk-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Business Matchmaking</h3>
+                    <p>Get introduced to potential clients, partners, or service providers through our curated connections program.</p>
+                </div>
+                
+                <div class="perk-card">
+                    <div class="perk-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>Partner Discounts</h3>
+                    <p>Exclusive discounts on business services, software, insurance, legal services, and more through our partner network.</p>
+                </div>
+                
+                <div class="perk-card">
+                    <div class="perk-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Member Directory</h3>
+                    <p>Access our private member directory to connect with other professionals based on industry, skills, or interests.</p>
+                </div>
+                
+                <div class="perk-card">
+                    <div class="perk-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Showcase Opportunities</h3>
+                    <p>Present your business at member showcases, feature in our newsletter, or get spotlighted on our social channels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Join Our Community?</h2>
+            <p>Experience the power of connection at Nexo Space. Schedule a tour to meet our community manager and learn how you can become part of Guatemala's most dynamic professional network.</p>
+            <a href="contact.html" class="btn btn-secondary">Join the Community</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo"><i class="fas fa-cube"></i> Nexo Space</a>
+                    <p>Bringing modern, flexible coworking solutions to Guatemala's growing business ecosystem. Join our community of innovators today.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul
